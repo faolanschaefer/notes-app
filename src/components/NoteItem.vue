@@ -1,17 +1,41 @@
 <template>
 	<div class="wrapper">
 		<div class="banner">
-			<img src="../assets/back.png" alt="back" />
-			<input type="text" id="note-title" />
-			<img src="../assets/save_dirty.png" alt="save" />
+			<div class="button-wrapper">
+				<img src="../assets/back.png" alt="back" />
+			</div>
+			<input type="text" id="note-title" v-model="title" />
+			<div class="button-wrapper" @click="saveData">
+				<img src="../assets/save_dirty.png" alt="save" />
+			</div>
 		</div>
 		<div class="body">
-			<textarea elastic id="note-body"></textarea>
+			<textarea id="note-body" v-model="body"></textarea>
 		</div>
 	</div>
 </template>
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			title: "",
+			body: "",
+		};
+	},
+	methods: {
+		saveData() {
+			localStorage.title = this.title;
+			localStorage.body = this.body;
+		},
+		loadData() {
+			this.title = localStorage.title;
+			this.body = localStorage.body;
+		},
+	},
+	mounted() {
+		this.loadData();
+	},
+};
 </script>
 <style scoped>
 .wrapper {
@@ -24,7 +48,8 @@ export default {};
 .wrapper * {
 	box-sizing: border-box;
 }
-div {
+.banner,
+.body {
 	margin: auto;
 	width: 100%;
 }
@@ -65,5 +90,11 @@ div {
 		#9198e5 calc(1.5em + 3px),
 		#9198e5 calc(1.5em + 4px)
 	);
+}
+.button-wrapper {
+	height: 100%;
+}
+.button-wrapper :hover {
+	cursor: pointer;
 }
 </style>
