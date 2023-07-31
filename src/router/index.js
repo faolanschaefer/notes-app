@@ -1,13 +1,13 @@
 import { createWebHistory, createRouter } from "vue-router";
-import CreateComponent from "@/components/CreateComponent.vue";
-import EditComponent from "@/components/EditComponent.vue";
-import ListComponent from "@/components/ListComponent.vue";
+import HomeComponent from "@/components/Home.vue";
+import NoteComponent from "@/components/NoteItem.vue";
+import ListComponent from "@/components/NoteList.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: CreateComponent,
+    component: HomeComponent,
   },
   {
     path: "/view",
@@ -17,7 +17,7 @@ const routes = [
   {
     path: "/edit",
     name: "edit",
-    component: EditComponent,
+    component: NoteComponent,
   },
 ];
 
