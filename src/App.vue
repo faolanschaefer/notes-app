@@ -1,8 +1,8 @@
 <template>
-	<note-item />
+	<router-view></router-view>
 </template>
 
-<script>
+<!-- <script>
 import NoteItem from "./components/NoteItem.vue";
 
 export default {
@@ -11,7 +11,7 @@ export default {
 		NoteItem,
 	},
 };
-</script>
+</script> -->
 
 <style>
 #app {

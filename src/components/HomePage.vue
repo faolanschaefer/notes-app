@@ -1,3 +1,3 @@
 <template>
-    list
+    test
 </template>
